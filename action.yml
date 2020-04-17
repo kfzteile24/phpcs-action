@@ -10,10 +10,14 @@ inputs:
     description: 'Path to phpcs binary'
     required: false
     default: 'phpcs'
-  installed_paths:
-    description: 'Setting the installed standard paths'
+  standard:
+    description: 'Standard used for code sniffing'
     required: false
     default: ''
+  dir:
+    description: 'Directory of source code'
+    required: false
+    default: './'
 runs:
   using: 'docker'
   image: 'Dockerfile'
