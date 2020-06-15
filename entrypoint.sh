@@ -14,7 +14,7 @@ if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]
 else
     echo "Check for warnings enabled"
 
-    ${INPUT_PHPCS_BIN_PATH} ${INPUT_DIR} --standard=${INPUT_STANDARD} --report=checkstyle
+    ${INPUT_PHPCS_BIN_PATH} ${INPUT_DIR} --standard=${INPUT_STANDARD} -n --report=checkstyle
 fi
 
 status=$?
