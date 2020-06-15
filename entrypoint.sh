@@ -2,6 +2,8 @@
 
 cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
+find . -print
+
 echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/problem-matcher.json"
 
 if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]; then
