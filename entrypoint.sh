@@ -2,7 +2,7 @@
 
 cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
-find /customer/vendor/kfzteile24/php-coding-standard/Kfz24 -print
+find /github/workspace/customer/vendor/kfzteile24/php-coding-standard/Kfz24 -print
 
 echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/problem-matcher.json"
 
