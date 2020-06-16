@@ -2,16 +2,9 @@
 
 cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
-echo "/github/workspace/customer/vendor/kfzteile24/php-coding-standard/Kfz24"
-find /github/workspace/customer/vendor/kfzteile24/php-coding-standard/Kfz24 -print
-
 echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/problem-matcher.json"
 
-echo "Display autoload generated file"
-
-cat phar:///usr/bin/phpcs/autoload.php
-
-echo "${INPUT_PHPCS_BIN_PATH} AND ${INPUT_DIR} AND ${INPUT_STANDARD}"
+pwd
 
 if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]; then
     echo "Check for warnings disabled"
@@ -20,7 +13,7 @@ if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]
 else
     echo "Check for warnings enabled"
 
-    ${INPUT_PHPCS_BIN_PATH} ${INPUT_DIR} --standard=${INPUT_STANDARD} --report=checkstyle
+    ${INPUT_PHPCS_BIN_PATH} ${INPUT_DIR} --bootstrap=/vendor/autoload.php --standard=${INPUT_STANDARD} --report=checkstyle
 fi
 
 status=$?
