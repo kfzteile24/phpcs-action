@@ -13,7 +13,7 @@ if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]
 else
     echo "Check for warnings enabled"
 
-    ${INPUT_PHPCS_BIN_PATH} ${INPUT_DIR} --bootstrap=./customer/vendor/autoload.php --standard=${INPUT_STANDARD} --report=checkstyle
+    ${INPUT_PHPCS_BIN_PATH} ${INPUT_DIR} --bootstrap=/github/workspace/customer/vendor/autoload.php --standard=${INPUT_STANDARD} --report=checkstyle
 fi
 
 status=$?
