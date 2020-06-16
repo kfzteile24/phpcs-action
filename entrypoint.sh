@@ -8,7 +8,7 @@ find /github/workspace/customer/vendor/kfzteile24/php-coding-standard/Kfz24 -pri
 echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/problem-matcher.json"
 
 echo "Display autoload content"
-cat /usr/bin/phpcs/autoload.php
+find /usr -print
 
 if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]; then
     echo "Check for warnings disabled"
