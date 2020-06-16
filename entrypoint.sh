@@ -4,10 +4,6 @@ cp /action/problem-matcher.json /github/workflow/problem-matcher.json
 
 echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/problem-matcher.json"
 
-pwd
-
-echo "Test 1"
-
 if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]; then
     echo "Check for warnings disabled"
 
@@ -15,7 +11,7 @@ if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]
 else
     echo "Check for warnings enabled"
 
-     /github/workspace/customer/vendor/bin/phpcs ${INPUT_DIR} --standard=${INPUT_STANDARD} --report=checkstyle
+    ${INPUT_PHPCS_BIN_PATH} ${INPUT_DIR} --standard=${INPUT_STANDARD} --report=checkstyle
 fi
 
 status=$?
