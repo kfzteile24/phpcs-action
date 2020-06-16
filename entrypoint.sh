@@ -10,7 +10,7 @@ echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/problem-matcher.json"
 echo "Display phpcs directory content"
 find /usr/bin/phpcs -print
 
-echo ${INPUT_PHPCS_BIN_PATH}
+echo "${INPUT_PHPCS_BIN_PATH} AND ${INPUT_DIR} AND ${INPUT_STANDARD}"
 
 if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]; then
     echo "Check for warnings disabled"
