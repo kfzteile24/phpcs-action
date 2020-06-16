@@ -7,12 +7,11 @@ find /github/workspace/customer/vendor/kfzteile24/php-coding-standard/Kfz24 -pri
 
 echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/problem-matcher.json"
 
-echo "Display phpcs directory content"
-find /usr/bin -print
+if [ -n "${INPUT_INSTALLED_PATHS}" ]; then
+    ${INPUT_PHPCS_BIN_PATH} --config-set installed_paths "${INPUT_INSTALLED_PATHS}"
+fi
 
-cat /usr/bin/phpcs
-
-echo "${INPUT_PHPCS_BIN_PATH} AND ${INPUT_DIR} AND ${INPUT_STANDARD}"
+echo "${INPUT_PHPCS_BIN_PATH} AND ${INPUT_DIR} AND ${INPUT_STANDARD} AND ${INPUT_INSTALLED_PATHS}"
 
 if [ -z "${INPUT_ENABLE_WARNINGS}" ] || [ "${INPUT_ENABLE_WARNINGS}" = "false" ]; then
     echo "Check for warnings disabled"
