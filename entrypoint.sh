@@ -8,7 +8,9 @@ find /github/workspace/customer/vendor/kfzteile24/php-coding-standard/Kfz24 -pri
 echo "::add-matcher::${RUNNER_TEMP}/_github_workflow/problem-matcher.json"
 
 echo "Display phpcs directory content"
-find /usr/bin/phpcs -print
+find /usr/bin -print
+
+cat /usr/bin/phpcs
 
 echo "${INPUT_PHPCS_BIN_PATH} AND ${INPUT_DIR} AND ${INPUT_STANDARD}"
 
